@@ -29,6 +29,33 @@ class MainController extends Controller
             'active' => "menu",
             'menus' => Menu::latest()->filter(request(['search', 'sort']))->paginate(6)->withQueryString(),
             'searchActive' => $searchActive,
+            'pageSelect' => 'menu'
+        ]);
+    }
+
+    public function booking(){
+        return view('main.booking', [
+            'title' => 'Booking a Table',
+            'active' => 'booking',
+        ]);
+    }
+
+    public function order(){
+
+        if(request('sort') == 'foods'){
+            $searchActive = 'foods';
+        }else if(request('sort') == 'drinks'){
+            $searchActive = 'drinks';
+        }else{
+            $searchActive = 'seller';
+        };
+
+        return view('main.menu',[
+            'title' => "ZenkFood | Menu",
+            'active' => "order",
+            'menus' => Menu::latest()->filter(request(['search', 'sort']))->paginate(6)->withQueryString(),
+            'searchActive' => $searchActive,
+            'pageSelect' => 'order'
         ]);
     }
 }

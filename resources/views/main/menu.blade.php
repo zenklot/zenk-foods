@@ -12,7 +12,7 @@
     <div class="container">
    
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-            <h5 class="section-title ff-secondary text-center text-primary fw-normal">Food Menu</h5>
+            <h5 class="section-title ff-secondary text-center text-primary fw-normal">{{ $pageSelect == 'menu' ? 'Foods Menu' : 'Order Foods' }}</h5>
             <div class="row justify-content-center mb-3">
                 <div class="col-md-6">
                     <form action="/menu">
@@ -64,34 +64,10 @@
             <div class="container">
 
                 <div class="row row-cols-1 row-cols-md-3 g-4">
-
                     @foreach ($menus as $menu)
-                    <div class="col">
-                        <div class="card-group">
-                            <div class="card rounded shadow p-3">
-                                    <img src="{{ asset('img/menu/bebek_goreng.png') }}" class="card-img-top rounded" alt="...">
-                              <div class="card-body">
-                                <h5 class="card-title">{{ $menu->nama_menu }} <i class="fas fa-fire text-danger"></i></h5>
-                                <p class="card-text">{{ $menu->keterangan }}</p>
-                                <div class="row">
-                                    <div class="col-8 text-start">
-                                        <h6 class="mt-n1 mb-0 fs-5 fw-bold">RP. {{ $menu->harga }}</h6>
-                                        <small class="text-body">{{ $menu->kategori_menu }}</small>
-                                    </div>
-                                    <div class="col-4">
-                                        <input type="number" name="" id="" class="form-control" value="1"/>
-                                    </div>
-                                </div>
-                              </div>
-                              <div class="card-footer bg-white">
-                                <button class="btn btn-warning btn-font-size-lg btn-border-radius-lg w-100 fw-bold">Add to cart <i class="fas fa-shopping-cart"></i></button>
-                              </div>
-                            </div>
-                        </div>
-                    </div>    
+                        <menu-card-product :menu="{{ $menu }}"></menu-card-product>
                     @endforeach
-                  </div>
-
+                </div>
                   <div class="row mt-5">
                       <div class="col">
                         <div class="d-flex justify-content-center">

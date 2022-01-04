@@ -28,6 +28,7 @@
         "bootstrap-icons": "^1.7.2",
         "sweetalert2": "^11.3.2",
         "vform": "^2.1.2",
+        "vue-fragment": "^1.5.2",
         "vue-loader": "^15.9.8",
         "vue-progressbar": "^0.7.5",
         "vue-router": "^3.5.3"

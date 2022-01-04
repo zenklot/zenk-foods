@@ -477,3 +477,40 @@
     padding-right: 0;
     border-right: none;
 }
+
+
+
+.custom-control.fill-checkbox {
+    --color: #fea11696;
+  }
+  .custom-control.fill-checkbox .fill-control-input {
+    display: none;
+  }
+  .custom-control.fill-checkbox .fill-control-input:checked ~ .fill-control-indicator {
+    background-color: var(--color);
+    border-color: var(--color);
+    background-size: 80%;
+  }
+  .custom-control.fill-checkbox .fill-control-indicator {
+    border-radius: 3px;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: 0.3s;
+    background: transperent;
+    background-size: 0%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('../img/check.svg');
+  }
+  
+
+.bg-gambar{
+    background: linear-gradient(rgba(15, 23, 43, .9), rgba(15, 23, 43, .9)), url(../img/bg-hero.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
