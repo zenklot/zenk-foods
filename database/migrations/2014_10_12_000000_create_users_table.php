@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->enum('jenis_kelamin', ['L','P'])->nullable();
             $table->string('no_hp')->nullable();
             $table->string('image')->nullable();
+            $table->string('kota')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -15,9 +15,9 @@ class MenuFactory extends Factory
     {
         return [
             "nama_menu" => $this->faker->name(),
-            "keterangan" => $this->faker->paragraph(),
+            "keterangan" => $this->faker->paragraph(2),
             "harga"=>$this->faker->numberBetween(5000, 40000),
-            "stok"=>'ready',
+            "stok"=>($this->faker->numberBetween(0,1) == 1 ? "ready" : "empty"),
             "seller"=> 1 ,
             "kategori_menu"=> ($this->faker->numberBetween(0,1) == 1 ? "minuman" : "makanan"),
             "image" => "img/menu/nama.jpg"

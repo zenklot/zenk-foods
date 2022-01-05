@@ -10,7 +10,6 @@ class MainController extends Controller
     public function index(){
         return view('main.index',[
             'title' => "ZenkFood",
-            'active' => "home"
         ]);
     }
 
@@ -26,7 +25,6 @@ class MainController extends Controller
 
         return view('main.menu',[
             'title' => "ZenkFood | Menu",
-            'active' => "menu",
             'menus' => Menu::latest()->filter(request(['search', 'sort']))->paginate(6)->withQueryString(),
             'searchActive' => $searchActive,
             'pageSelect' => 'menu'
@@ -36,7 +34,6 @@ class MainController extends Controller
     public function booking(){
         return view('main.booking', [
             'title' => 'Booking a Table',
-            'active' => 'booking',
         ]);
     }
 
@@ -52,7 +49,6 @@ class MainController extends Controller
 
         return view('main.menu',[
             'title' => "ZenkFood | Menu",
-            'active' => "order",
             'menus' => Menu::latest()->filter(request(['search', 'sort']))->paginate(6)->withQueryString(),
             'searchActive' => $searchActive,
             'pageSelect' => 'order'
