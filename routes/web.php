@@ -50,30 +50,32 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::get('/dashboard', 'DashboardController@index')->name('dashboard.index');        
         Route::post('/logout', 'LogoutController@perform')->name('logout.perform');
 
+        
         Route::group(['middleware' => ['verified']], function()
         {
             Route::get('/dashboard/booking', 'DashboardController@booking')->name('dashboard.booking');
             Route::get('/dashboard/order', 'DashboardController@order')->name('dashboard.order');
+            
+            Route::group(['middleware' => ['permission']], function()
+            {
+                Route::resource('/admin/roles', RolesController::class);
+                Route::resource('/admin/permissions', PermissionsController::class);
+
+                Route::get('/admin' , 'AdminController@index')->name('admin.index');
+
+                // UsersController
+                Route::group(['prefix' => 'admin/users'], function() {
+                    Route::get('/', 'UsersController@index')->name('users.index');
+                    Route::get('/create', 'UsersController@create')->name('users.create');
+                    Route::post('/create', 'UsersController@store')->name('users.store');
+                    Route::get('/{user}/show', 'UsersController@show')->name('users.show');
+                    Route::get('/{user}/edit', 'UsersController@edit')->name('users.edit');
+                    Route::patch('/{user}/update', 'UsersController@update')->name('users.update');
+                    Route::delete('/{user}/delete', 'UsersController@destroy')->name('users.destroy');
+                });
+            });
         });
     });
 
 
 });
-
-
-
-
-
-
-// Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
-
-// Auth::routes(['verify' => true]);
-// Route::post('/login', [LoginController::class, 'authenticate']);
-// Route::post('/logout', [LoginController::class, 'logout'])->middleware(['auth','verified']);
-
-// Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
-// Route::post('/register', [RegisterController::class, 'store']);
-
-// Route::get('/dashboard', function(){
-//     return view('dashboard.index', ['active' => 'home']);
-// })->middleware(['auth','verified']);

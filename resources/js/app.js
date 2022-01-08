@@ -49,7 +49,7 @@ let routes = [
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('menu-card-product', require('./components/Main/MenuCardProduct.vue').default);
-Vue.component('main-book-table', require('./components/Main/MainBookTable.vue').default);
+Vue.component('main-book-table', require('./components/MainBookTable.vue').default);
 
 const router = new VueRouter({
     mode:'history',

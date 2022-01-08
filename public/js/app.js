@@ -5283,10 +5283,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Main/MainBookTable.vue?vue&type=script&lang=js&":
-/*!*************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Main/MainBookTable.vue?vue&type=script&lang=js& ***!
-  \*************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MainBookTable.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MainBookTable.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -5294,6 +5294,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -5381,7 +5388,11 @@ __webpack_require__.r(__webpack_exports__);
       people: 2,
       totalMeja: 0,
       harga: 0,
-      selectedMeja: []
+      selectedMeja: [],
+      tanggal: '',
+      waktu: '',
+      akhir: '',
+      awal: ''
     };
   },
   methods: {
@@ -5397,6 +5408,20 @@ __webpack_require__.r(__webpack_exports__);
     showAlert: function showAlert() {
       Swal.fire("Failed To Book a table", "Harus Login untuk membooking meja", "warning");
     }
+  },
+  mounted: function mounted() {
+    var tgl = new Date();
+    var bulan = tgl.getMonth() + 1 < 9 ? '0' + (tgl.getMonth() + 1) : tgl.getMonth() + 1;
+    var hari = tgl.getDate() < 9 ? '0' + tgl.getDate() : tgl.getDate();
+    var jam = tgl.getHours() < 10 ? '0' + tgl.getHours() : tgl.getHours();
+    var menit = tgl.getMinutes() < 10 ? '0' + tgl.getMinutes() : tgl.getMinutes();
+    this.tanggal = tgl.getFullYear().toString() + "-" + bulan + "-" + hari;
+    this.awal = tgl.getFullYear().toString() + "-" + bulan + "-" + hari;
+    this.waktu = jam + ':' + menit;
+    tgl.setDate(tgl.getDate() + 30);
+    bulan = tgl.getMonth() + 1 < 9 ? '0' + (tgl.getMonth() + 1) : tgl.getMonth() + 1;
+    hari = tgl.getDate() < 9 ? '0' + tgl.getDate() : tgl.getDate();
+    this.akhir = tgl.getFullYear().toString() + "-" + bulan + "-" + hari;
   }
 });
 
@@ -5594,7 +5619,7 @@ var routes = [{
 }];
 vue__WEBPACK_IMPORTED_MODULE_1__["default"].component('example-component', (__webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]));
 vue__WEBPACK_IMPORTED_MODULE_1__["default"].component('menu-card-product', (__webpack_require__(/*! ./components/Main/MenuCardProduct.vue */ "./resources/js/components/Main/MenuCardProduct.vue")["default"]));
-vue__WEBPACK_IMPORTED_MODULE_1__["default"].component('main-book-table', (__webpack_require__(/*! ./components/Main/MainBookTable.vue */ "./resources/js/components/Main/MainBookTable.vue")["default"]));
+vue__WEBPACK_IMPORTED_MODULE_1__["default"].component('main-book-table', (__webpack_require__(/*! ./components/MainBookTable.vue */ "./resources/js/components/MainBookTable.vue")["default"]));
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_5__["default"]({
   mode: 'history',
   routes: routes
@@ -44995,10 +45020,10 @@ component.options.__file = "resources/js/components/ExampleComponent.vue"
 
 /***/ }),
 
-/***/ "./resources/js/components/Main/MainBookTable.vue":
-/*!********************************************************!*\
-  !*** ./resources/js/components/Main/MainBookTable.vue ***!
-  \********************************************************/
+/***/ "./resources/js/components/MainBookTable.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/components/MainBookTable.vue ***!
+  \***************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -45006,9 +45031,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _MainBookTable_vue_vue_type_template_id_359ed561___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MainBookTable.vue?vue&type=template&id=359ed561& */ "./resources/js/components/Main/MainBookTable.vue?vue&type=template&id=359ed561&");
-/* harmony import */ var _MainBookTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MainBookTable.vue?vue&type=script&lang=js& */ "./resources/js/components/Main/MainBookTable.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _MainBookTable_vue_vue_type_template_id_2823da51___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MainBookTable.vue?vue&type=template&id=2823da51& */ "./resources/js/components/MainBookTable.vue?vue&type=template&id=2823da51&");
+/* harmony import */ var _MainBookTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MainBookTable.vue?vue&type=script&lang=js& */ "./resources/js/components/MainBookTable.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -45018,8 +45043,8 @@ __webpack_require__.r(__webpack_exports__);
 ;
 var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
   _MainBookTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _MainBookTable_vue_vue_type_template_id_359ed561___WEBPACK_IMPORTED_MODULE_0__.render,
-  _MainBookTable_vue_vue_type_template_id_359ed561___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _MainBookTable_vue_vue_type_template_id_2823da51___WEBPACK_IMPORTED_MODULE_0__.render,
+  _MainBookTable_vue_vue_type_template_id_2823da51___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
   null,
@@ -45029,7 +45054,7 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/Main/MainBookTable.vue"
+component.options.__file = "resources/js/components/MainBookTable.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -45089,10 +45114,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/Main/MainBookTable.vue?vue&type=script&lang=js&":
-/*!*********************************************************************************!*\
-  !*** ./resources/js/components/Main/MainBookTable.vue?vue&type=script&lang=js& ***!
-  \*********************************************************************************/
+/***/ "./resources/js/components/MainBookTable.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/MainBookTable.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -45100,7 +45125,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MainBookTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MainBookTable.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Main/MainBookTable.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MainBookTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MainBookTable.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MainBookTable.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MainBookTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
@@ -45138,19 +45163,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/Main/MainBookTable.vue?vue&type=template&id=359ed561&":
-/*!***************************************************************************************!*\
-  !*** ./resources/js/components/Main/MainBookTable.vue?vue&type=template&id=359ed561& ***!
-  \***************************************************************************************/
+/***/ "./resources/js/components/MainBookTable.vue?vue&type=template&id=2823da51&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/MainBookTable.vue?vue&type=template&id=2823da51& ***!
+  \**********************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MainBookTable_vue_vue_type_template_id_359ed561___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MainBookTable_vue_vue_type_template_id_359ed561___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MainBookTable_vue_vue_type_template_id_2823da51___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MainBookTable_vue_vue_type_template_id_2823da51___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MainBookTable_vue_vue_type_template_id_359ed561___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MainBookTable.vue?vue&type=template&id=359ed561& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Main/MainBookTable.vue?vue&type=template&id=359ed561&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MainBookTable_vue_vue_type_template_id_2823da51___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MainBookTable.vue?vue&type=template&id=2823da51& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MainBookTable.vue?vue&type=template&id=2823da51&");
 
 
 /***/ }),
@@ -45220,10 +45245,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Main/MainBookTable.vue?vue&type=template&id=359ed561&":
-/*!******************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Main/MainBookTable.vue?vue&type=template&id=359ed561& ***!
-  \******************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MainBookTable.vue?vue&type=template&id=2823da51&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MainBookTable.vue?vue&type=template&id=2823da51& ***!
+  \*************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -45236,27 +45261,71 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("fragment", [
+  return _c("div", [
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-lg-4 col-md-6 col-sm-12 mb-2" }, [
         _c("div", { staticClass: "form-floating date" }, [
           _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.tanggal,
+                expression: "tanggal",
+              },
+            ],
             staticClass: "form-control",
-            attrs: { type: "date", id: "date", placeholder: "Date", value: "" },
+            attrs: {
+              type: "date",
+              id: "date",
+              placeholder: "Date",
+              min: _vm.awal,
+              max: _vm.akhir,
+            },
+            domProps: { value: _vm.tanggal },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.tanggal = $event.target.value
+              },
+            },
           }),
           _vm._v(" "),
-          _c("label", { attrs: { for: "date" } }, [_vm._v("Select Date")]),
+          _c("label", { staticClass: "text-dark", attrs: { for: "date" } }, [
+            _vm._v("Select Date"),
+          ]),
         ]),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "col-lg-4 col-md-6 col-sm-12 mb-2" }, [
         _c("div", { staticClass: "form-floating date" }, [
           _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.waktu,
+                expression: "waktu",
+              },
+            ],
             staticClass: "form-control",
             attrs: { type: "time", placeholder: "Time", id: "time" },
+            domProps: { value: _vm.waktu },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.waktu = $event.target.value
+              },
+            },
           }),
           _vm._v(" "),
-          _c("label", { attrs: { for: "time" } }, [_vm._v("Select Time")]),
+          _c("label", { staticClass: "text-dark", attrs: { for: "time" } }, [
+            _vm._v("Select Time"),
+          ]),
         ]),
       ]),
       _vm._v(" "),
@@ -45290,22 +45359,14 @@ var render = function () {
             },
           }),
           _vm._v(" "),
-          _c("label", { attrs: { for: "people" } }, [_vm._v("No of People")]),
+          _c("label", { staticClass: "text-dark", attrs: { for: "people" } }, [
+            _vm._v("No of People"),
+          ]),
         ]),
       ]),
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col" }, [
-        _c("h4", { staticClass: "text-white mt-3" }, [
-          _vm._v("Select Your Table"),
-        ]),
-        _vm._v(" "),
-        _c("h6", { staticClass: "text-white mb-3" }, [
-          _vm._v("Setiap Meja menampung maksimal 6 orang dewasa"),
-        ]),
-      ]),
-    ]),
+    _vm._m(0),
     _vm._v(" "),
     _c(
       "div",
@@ -45313,7 +45374,7 @@ var render = function () {
       _vm._l(_vm.mejas, function (meja) {
         return _c(
           "div",
-          { key: meja, staticClass: "col-md-3 col-sm-2 col-xs-1 mb-3" },
+          { key: meja, staticClass: "col-md-3 col-sm-4 col-xs-6 mb-3" },
           [
             _c("div", { staticClass: "card-group" }, [
               _c(
@@ -45330,87 +45391,100 @@ var render = function () {
                   _vm._v(" "),
                   _c(
                     "div",
-                    {
-                      staticClass:
-                        "card-img-overlay d-flex align-items-center p-0",
-                    },
+                    { staticClass: "card-img-overlay align-items-center p-0" },
                     [
                       _c(
                         "p",
-                        {
-                          staticClass:
-                            "card-title text-center flex-fill p-4 fs-3 text-white",
-                          staticStyle: {
-                            "background-color": "rgba(0, 0, 0, 0.6)",
-                          },
-                        },
-                        [_vm._v("Meja " + _vm._s(meja))]
-                      ),
-                      _vm._v(" "),
-                      _c("p", { staticClass: "card-text" }, [
-                        _c(
-                          "label",
-                          { staticClass: "custom-control fill-checkbox" },
-                          [
-                            _c("input", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.selectedMeja,
-                                  expression: "selectedMeja",
-                                },
-                              ],
-                              staticClass: "fill-control-input",
-                              attrs: {
-                                type: "checkbox",
-                                disabled:
-                                  _vm.totalMeja > _vm.people &&
-                                  _vm.selectedMeja.indexOf(meja) == -1,
-                              },
-                              domProps: {
-                                value: meja,
-                                checked: Array.isArray(_vm.selectedMeja)
-                                  ? _vm._i(_vm.selectedMeja, meja) > -1
-                                  : _vm.selectedMeja,
-                              },
-                              on: {
-                                change: [
-                                  function ($event) {
-                                    var $$a = _vm.selectedMeja,
-                                      $$el = $event.target,
-                                      $$c = $$el.checked ? true : false
-                                    if (Array.isArray($$a)) {
-                                      var $$v = meja,
-                                        $$i = _vm._i($$a, $$v)
-                                      if ($$el.checked) {
-                                        $$i < 0 &&
-                                          (_vm.selectedMeja = $$a.concat([$$v]))
-                                      } else {
-                                        $$i > -1 &&
-                                          (_vm.selectedMeja = $$a
-                                            .slice(0, $$i)
-                                            .concat($$a.slice($$i + 1)))
-                                      }
-                                    } else {
-                                      _vm.selectedMeja = $$c
-                                    }
-                                  },
-                                  function ($event) {
-                                    _vm.selectMeja(
-                                      _vm.selectedMeja.indexOf(meja) == -1
-                                    )
+                        { staticClass: "card-text text-center d-flex h-100" },
+                        [
+                          _c(
+                            "label",
+                            {
+                              staticClass:
+                                "custom-control flex-fill fill-checkbox mb-0",
+                            },
+                            [
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.selectedMeja,
+                                    expression: "selectedMeja",
                                   },
                                 ],
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("span", {
-                              staticClass: "fill-control-indicator",
-                            }),
-                          ]
-                        ),
-                      ]),
+                                staticClass: "fill-control-input",
+                                attrs: {
+                                  type: "checkbox",
+                                  disabled:
+                                    _vm.totalMeja > _vm.people &&
+                                    _vm.selectedMeja.indexOf(meja) == -1,
+                                },
+                                domProps: {
+                                  value: meja,
+                                  checked: Array.isArray(_vm.selectedMeja)
+                                    ? _vm._i(_vm.selectedMeja, meja) > -1
+                                    : _vm.selectedMeja,
+                                },
+                                on: {
+                                  change: [
+                                    function ($event) {
+                                      var $$a = _vm.selectedMeja,
+                                        $$el = $event.target,
+                                        $$c = $$el.checked ? true : false
+                                      if (Array.isArray($$a)) {
+                                        var $$v = meja,
+                                          $$i = _vm._i($$a, $$v)
+                                        if ($$el.checked) {
+                                          $$i < 0 &&
+                                            (_vm.selectedMeja = $$a.concat([
+                                              $$v,
+                                            ]))
+                                        } else {
+                                          $$i > -1 &&
+                                            (_vm.selectedMeja = $$a
+                                              .slice(0, $$i)
+                                              .concat($$a.slice($$i + 1)))
+                                        }
+                                      } else {
+                                        _vm.selectedMeja = $$c
+                                      }
+                                    },
+                                    function ($event) {
+                                      _vm.selectMeja(
+                                        _vm.selectedMeja.indexOf(meja) == -1
+                                      )
+                                    },
+                                  ],
+                                },
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                {
+                                  staticClass:
+                                    "fill-control-indicator text-wrap fs-4 fw-bold",
+                                },
+                                [
+                                  _vm.totalMeja > _vm.people &&
+                                  _vm.selectedMeja.indexOf(meja) == -1
+                                    ? _c("span", [
+                                        _c("i", {
+                                          staticClass:
+                                            "fas fa-times-circle fa-3x text-danger",
+                                        }),
+                                      ])
+                                    : _c(
+                                        "span",
+                                        { staticClass: "badge bg-dark" },
+                                        [_vm._v("Meja " + _vm._s(meja))]
+                                      ),
+                                ]
+                              ),
+                            ]
+                          ),
+                        ]
+                      ),
                     ]
                   ),
                 ]
@@ -45430,13 +45504,7 @@ var render = function () {
       _vm._v("Meja Dipilih : " + _vm._s(_vm.selectedMeja.join(","))),
     ]),
     _vm._v(" "),
-    _c("p", { staticClass: "text-white text-end mt-2" }, [
-      _vm._v("Harga booking Rp. 5.000 untuk satu meja"),
-      _c("br"),
-      _vm._v(
-        "dan harga total yang tertera merupakan jaminan untuk kedatangan anda sisanya bisa di tukarkan ke menu ketika sampai di Rumah Makan"
-      ),
-    ]),
+    _vm._m(1),
     _vm._v(" "),
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col" }, [
@@ -45452,7 +45520,36 @@ var render = function () {
     ]),
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col" }, [
+        _c("h4", { staticClass: "text-white mt-3" }, [
+          _vm._v("Select Your Table"),
+        ]),
+        _vm._v(" "),
+        _c("h6", { staticClass: "text-white mb-3" }, [
+          _vm._v("Setiap Meja menampung maksimal 6 orang dewasa"),
+        ]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "text-white text-end mt-2" }, [
+      _vm._v("Harga booking Rp. 5.000 untuk satu meja"),
+      _c("br"),
+      _vm._v(
+        "dan harga total yang tertera merupakan jaminan untuk kedatangan anda sisanya bisa di tukarkan ke menu ketika sampai di Rumah Makan"
+      ),
+    ])
+  },
+]
 render._withStripped = true
 
 

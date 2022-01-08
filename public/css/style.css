@@ -489,11 +489,11 @@
   .custom-control.fill-checkbox .fill-control-input:checked ~ .fill-control-indicator {
     background-color: var(--color);
     border-color: var(--color);
-    background-size: 80%;
+    background-size: 100%;
   }
   .custom-control.fill-checkbox .fill-control-indicator {
-    border-radius: 3px;
     display: inline-block;
+    background-color: rgba(0, 0, 0, 0.5);
     position: absolute;
     top: 0;
     left: 0;
@@ -514,3 +514,4 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
