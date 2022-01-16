@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class RegisterRequest extends FormRequest
+class OrderSatuKotaRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,12 +24,14 @@ class RegisterRequest extends FormRequest
     public function rules()
     {
         return [
-            'nama_user' => 'required|max:128',
-            'email' => 'required|email:rfc,dns|unique:users,email',
-            'password' => 'required|min:6',
-            'password_confirm' => 'required|same:password',
-            'jenis_kelamin' => 'required|in:L,P',
-            'no_hp' => 'required|digits_between:10,13',
+            'kecamatan' => 'required',
+            'kelurahan' => 'required',
+            'kode_pos' => 'required|min:5|max:5',
+            'harga_ongkir' => 'required',
+            'alamat_rumah' => 'required',
+            'nama_pemesan' => 'required',
+            'no_hp' => 'required',
+            'cart' => 'required',
         ];
     }
 }

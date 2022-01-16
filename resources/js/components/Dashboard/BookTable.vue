@@ -1,5 +1,8 @@
 <template>
-    <div>
+    <fragment>
+ 
+    <form @submit.prevent="storeBooking()">
+
         <div class="row">
             <div class="col-lg-4 col-md-6 col-sm-12 mb-2">
                 <div class="form-floating date">
@@ -11,6 +14,7 @@
                         v-model="tanggal"
                         :min="awal"
                         :max="akhir"
+                        @change="showMeja"
                     />
                     <label for="date" class="text-dark">Select Date</label>
                 </div>
@@ -23,37 +27,41 @@
                         placeholder="Time"
                         id="time"
                         v-model="waktu"
+                        @change="showMeja"
                     />
                     <label for="time" class="text-dark">Select Time</label>
                 </div>
             </div>
+            <input type="hidden" name="booking_date">
             <div class="col-lg-4 col-md-6 col-sm-12 mb-2">
                 <div class="form-floating">
                     <input
                         type="number"
+                        autofocus
                         class="form-control"
                         placeholder="No of People"
                         value="2"
                         min="2"
                         id="people"
                         v-model="people"
+                        @change="showMeja"
                     />
                     <label for="people" class="text-dark">No of People</label>
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" v-show="next">
             <div class="col">
                 <h4 class="text-white mt-3">Select Your Table</h4>
                 <h6 class="text-white mb-3">Setiap Meja menampung maksimal 6 orang dewasa</h6>
             </div>
         </div>
-        <div class="row" >
+        <div class="row" v-show="next">
             <div class="col-md-3 col-sm-4 col-xs-6 mb-3" v-for="meja in mejas" :key="meja" >
             <!-- <div class="col-md-3 col-sm-2 col-xs-1 mb-3"> -->
                 <div class="card-group" >
                     <div class="card bg-dark text-white shadow rounded" >
-                        <img :src="meja > 7 ? 'img/lesehan.jpg' : 'img/meja.jpg' " class="card-img" alt="..." />
+                        <img :src="meja > 7 ? '/img/lesehan.jpg' : '/img/meja.jpg' " class="card-img" alt="..." />
                         <div class="card-img-overlay align-items-center p-0">
                             <!-- <p class="card-title text-center flex-fill p-4 fs-3 text-white" style="background-color: rgba(0, 0, 0, 0.6)">Meja {{meja}}</p> -->
                             <p class="card-text text-center d-flex h-100">
@@ -78,10 +86,11 @@
         <p class="text-white text-end mt-2">Harga booking Rp. 5.000 untuk satu meja<br>dan harga total yang tertera merupakan jaminan untuk kedatangan anda sisanya bisa di tukarkan ke menu ketika sampai di Rumah Makan</p>
         <div class="row">
             <div class="col">
-                <button class="btn btn-primary w-100" @click="showAlert">Booking Meja</button>
+                <button class="btn btn-primary w-100" type="submit">Booking Meja</button>
             </div>
         </div>
-    </div>
+    </form>
+    </fragment>
 </template>
 
 <script>
@@ -97,9 +106,17 @@ export default {
             tanggal: '',
             waktu: '',
             akhir: '',
-            awal : ''
+            awal : '',
+            next : false,
+            form: new Form({
+                email_user: "",
+                booking_date: "",
+                no_meja: "",
+                total_booking: "",
+            }),
         };
     },
+    props:['user_email'],
     methods:{
         selectMeja(con){
            if(con){
@@ -109,13 +126,30 @@ export default {
             }
             this.harga = 25000 * this.selectedMeja.length
         },
-         showAlert(){
+        showAlert(){
             Swal.fire(
                 "Failed To Book a table",
                 "Harus Login untuk membooking meja",
                 "warning"
             );
-       }
+        },
+        showMeja(){
+           this.next = true;
+        },
+        storeBooking(){
+            this.form.email_user = this.user_email
+            this.form.booking_date = this.tanggal+" "+ this.waktu
+            this.form.no_meja = this.selectedMeja.join(',')
+            this.form.total_booking = this.harga
+            this.form.post('/api/booking')
+            .then(()=>{
+                alert('berhasil');
+            })
+            .catch(()=>{
+                alert('gagal');
+            })
+        }
+
     },
     mounted(){
         let tgl = new Date()

@@ -26,11 +26,15 @@
         "@fortawesome/fontawesome-free": "^5.15.4",
         "admin-lte": "^3.1.0",
         "bootstrap-icons": "^1.7.2",
+        "crypto-js": "^4.1.1",
+        "laravel-vue-pagination": "^2.3.1",
         "sweetalert2": "^11.3.2",
         "vform": "^2.1.2",
+        "vue-cryptojs": "^2.2.1",
         "vue-fragment": "^1.5.2",
         "vue-loader": "^15.9.8",
         "vue-progressbar": "^0.7.5",
+        "vue-resource": "^1.5.3",
         "vue-router": "^3.5.3"
     }
 }

@@ -20,6 +20,6 @@ class RegisterController extends Controller
         
         event(new Registered($user));
         auth()->login($user);
-        return redirect('dashboard.index')->with('success', 'Selamat Akun Berhasi Dibuat');
+        return redirect('dashboard')->with('success', 'Selamat Akun Berhasi Dibuat');
     }
 }

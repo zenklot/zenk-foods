@@ -21,9 +21,10 @@
     @auth
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto py-0 pe-4">
-            <a href="/dashboard" class="nav-item nav-link  {{ Request::is('home') ? 'active' : ''}}">Home</a>
-            <a href="/dashboard/booking" class="nav-item nav-link  {{ Request::is('booking') ? 'active' : ''}}">Booking</a>
-            <a href="/dashboard/order" class="nav-item nav-link  {{ Request::is('order') ? 'active' : ''}}">Order</a>
+            <a href="/dashboard" class="nav-item nav-link  {{ Request::is('dashboard') ? 'active' : ''}}">Home</a>
+            <a href="/dashboard/booking" class="nav-item nav-link  {{ Request::is('dashboard/booking') ? 'active' : ''}}">Booking</a>
+            <a href="/dashboard/order" class="nav-item nav-link  {{ Request::is('dashboard/order') ? 'active' : ''}}">Order</a>
+            <a href="/dashboard/transaction" class="nav-item nav-link  {{ Request::is('dashboard/transaction') ? 'active' : ''}}">Transaksi</a>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">{{ auth()->user()->nama_user }}</a>
                 <div class="dropdown-menu m-0">

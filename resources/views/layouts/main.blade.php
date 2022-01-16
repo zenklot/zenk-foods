@@ -36,6 +36,9 @@
 
     <!-- JavaScript Libraries -->
     @include('layouts.templates.script')
+
+    
+    @yield('custom-script');
 </body>
 
 </html>

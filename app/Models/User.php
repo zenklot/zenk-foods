@@ -9,16 +9,21 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
+use Bavix\Wallet\Traits\HasWallet;
+use Bavix\Wallet\Interfaces\Wallet;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable implements MustVerifyEmail, Wallet
 {
-    use HasApiTokens, HasFactory, Notifiable, HasRoles;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles, HasWallet;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
+    protected $primaryKey = 'email';
+    public $incrementing = false;
+    protected $keyType = 'string';
     protected $table = 'users';
     protected $fillable = [
         'nama_user',
@@ -27,7 +32,6 @@ class User extends Authenticatable implements MustVerifyEmail
         'image',
         'email',
         'password',
-        'kota'
     ];
 
     /**
@@ -58,5 +62,14 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         $this->notify(new VerifyEmailQueued);
     }
+
+    public function booking_order(){
+        return $this->hasMany(BookingOrder::class);
+    }
+
+    public function foods_order_head(){
+        return $this->hasMany(FoodsOrderHead::class);
+    }
+
 
 }

@@ -37,6 +37,9 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         // Login
         Route::get('/login', 'LoginController@index')->name('login.index');
         Route::post('/login', 'LoginController@login')->name('login.perform');
+
+        // Transaction
+        // Route::post('api/transaction/notification', 'TransactionController@store');
     });
 
 
@@ -55,6 +58,15 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         {
             Route::get('/dashboard/booking', 'DashboardController@booking')->name('dashboard.booking');
             Route::get('/dashboard/order', 'DashboardController@order')->name('dashboard.order');
+            Route::post('/dashboard/order/satu-kota', 'OrderController@satu_kota');
+            Route::get('/dashboard/api/data-menu', 'DashboardController@api_order_menu')->name('dashboard.api_order_menu');
+            Route::get('/dashboard/api/data_indonesia/satu_kota', 'DashboardController@api_satu_kota');
+            Route::get('/dashboard/api/data_indonesia/beda_kota', 'DashboardController@api_beda_kota');
+
+            // Transaction
+            Route::resource('dashboard/transaction', TransactionController::class)->only(['index', 'show']);
+            // Route::get('/dashboard/transaction', 'TransactionController@index')->name('transaction.index');
+            // Route::get('/dashboard/transaction', 'TransactionController@index')->name('transaction.index');
             
             Route::group(['middleware' => ['permission']], function()
             {

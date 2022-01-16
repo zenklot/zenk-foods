@@ -68,17 +68,23 @@
                         class="fas fa-venus-mars text-white"></i></span>
                         <div class="form-control">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="jenis_kelamin" id="laki-laki" value="L">
+                                <div class="row">
+                                    <div class="col">
+                                        <input class="form-check-input" type="radio" name="jenis_kelamin" id="laki-laki" value="L">
                                 <label class="form-check-label" for="laki-laki">
-                                 Laki-Laki
+                                    Laki-Laki
                                 </label>
+                                    </div>
+                                    <div class="col">
+                                        <input class="form-check-input" type="radio" name="jenis_kelamin" id="perempuan" value="P">
+                                        <label class="form-check-label" for="perempuan">
+                                          Perempuan
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                
                             </div>
-                                <div class="form-check">
-                                <input class="form-check-input" type="radio" name="jenis_kelamin" id="perempuan" value="P">
-                                <label class="form-check-label" for="perempuan">
-                                  Perempuan
-                                </label>
-                              </div>
                         </div>
                         @error('jenis_kelamin')
                         <span class="invalid-feedback">{{ $message }}</span>
